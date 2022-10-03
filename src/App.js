@@ -3,7 +3,7 @@ import Input from "./Components/Input";
 import List from "./Components/List";
 import Footer from "./Components/Footer";
 
-const TestingApp = () => {
+const App = () => {
   const [tempTask, setTempTask] = useState([]);
   const [addBtn, setAddBtn] = useState(true);
   const [searchBtn, setSearchBtn] = useState(false);
@@ -49,6 +49,7 @@ const TestingApp = () => {
       tag: "active",
     };
     setTasks([...tasks, newObj]);
+    setTempTask([...tasks, newObj]);
     setText("");
   };
 
@@ -92,10 +93,10 @@ const TestingApp = () => {
           placeholder = {"Search"}
           style={{width: "100%", margin: "30px 0", padding: "5px 10px"}}
           onChange={(event) => {
-            setText(event.target.value);
+            setText(event.target.value.split(" ").map((el)=>{return el.charAt(0).toUpperCase() + el.slice(1)}).join(" "));
             setTempTask(
               tasks.filter((el) => {
-                return el.task.includes(event.target.value);
+                return el.task.toLowerCase().includes(event.target.value.toLowerCase());
               })
             );
           }}
@@ -119,4 +120,4 @@ const TestingApp = () => {
   );
 };
 
-export default TestingApp;
+export default App;
