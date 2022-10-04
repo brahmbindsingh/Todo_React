@@ -16,3 +16,7 @@ button{
   border: none;
   background: none;
 }
+
+.btnActive{
+  opacity: .5;
+}

@@ -9,20 +9,20 @@ const App = () => {
   const [searchBtn, setSearchBtn] = useState(false);
   const [tasks, setTasks] = useState([
     {
-      task: "wake up early",
-      timeStamp: "10:30",
-      tag: "active",
+      "task": "wake up early",
+      "timeStamp": "10:30",
+      "tag": "active"
     },
     {
-      task: "go for a job",
-      timeStamp: "11:30",
-      tag: "active",
+      "task": "go for a job",
+      "timeStamp": "11:30",
+      "tag": "active"
     },
     {
-      task: "make coffee",
-      timeStamp: "12:30",
-      tag: "active",
-    },
+      "task": "make coffee",
+      "timeStamp": "12:30",
+      "tag": "active"
+    }
   ]);
 
   const [text, setText] = useState("");
@@ -35,7 +35,8 @@ const App = () => {
       })
       .join(" ");
     setText(value);
-  };
+  };  
+
 
   useEffect(() => {
     setTempTask(tasks);
@@ -68,6 +69,7 @@ const App = () => {
 
     setTasks(filteredArr);
   };
+
 
   return (
     <div style={{ width: "50%", margin: "50px auto" }}>
